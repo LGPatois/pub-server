@@ -12,7 +12,7 @@ function HitSounds::OnDamage(%this, %type, %value, %pos, %vec, %mom, %vertPos, %
 		if (%shooterClient != %damagedClient) { // we check this anyway so filter first
 			
 			%damagedClientTeam = Client::getTeam(%damagedClient); // move these inside
-			%shooterClientTeam = Client::getTeam(%shooterClient);
+			%shooterClientTeam = Client::getTeam(%object);
 			
 			if(%shooterClientTeam != %damagedClientTeam)
 				Client::sendMessage(%shooterClient, 0, "~C_BuySell.wav");
