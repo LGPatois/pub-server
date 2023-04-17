@@ -16,7 +16,7 @@ function HitSounds::OnDamage(%this, %type, %value, %pos, %vec, %mom, %vertPos, %
 			
 			%damagedClientTeam = Client::getTeam(%damagedClient); // move these inside
 			%shooterClientTeam = Client::getTeam(%shooterClient);
-			Client::sendMessage(%shooterClient, 0, "~whit.wav");
+			Client::sendMessage(%shooterClient, 0, "~C_BuySell.wav");
 		}
 	}
 }
