@@ -2,9 +2,7 @@ Attachment::AddBefore("Player::onDamage",	"HitSounds::OnDamage");
 
 function HitSounds::OnDamage(%this, %type, %value, %pos, %vec, %mom, %vertPos, %quadrant, %object)
 {
-	%shooterClient = Player::getClient(%object);
-	
-	if (%shooterClient.hitSoundsDisabled || %type == 0)
+	if (%object.hitSoundsDisabled || %type == 0)
 		return;
 	else
 	{
