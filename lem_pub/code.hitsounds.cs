@@ -9,7 +9,7 @@ function HitSounds::OnDamage(%this, %type, %value, %pos, %vec, %mom, %vertPos, %
 		%damagedClient = Player::getClient(%this);
 		
 		// Team damage not on self
-		if (%shooterClient != %damagedClient) { // we check this anyway so filter first
+		if (%object != %damagedClient) { // we check this anyway so filter first
 			
 			%damagedClientTeam = Client::getTeam(%damagedClient); // move these inside
 			%shooterClientTeam = Client::getTeam(%object);
