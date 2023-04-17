@@ -4,19 +4,18 @@ function HitSounds::OnDamage(%this, %type, %value, %pos, %vec, %mom, %vertPos, %
 {
 	if (%object.hitSoundsDisabled || %type == 0)
 		return;
-	else
-	{
-		%damagedClient = Player::getClient(%this);
+	
+	%damagedClient = Player::getClient(%this);
+	
+	// Team damage not on self
+	if (%object != %damagedClient) {
 		
-		// Team damage not on self
-		if (%object != %damagedClient) { // we check this anyway so filter first
+		%damagedClientTeam = Client::getTeam(%damagedClient);
+		%shooterClientTeam = Client::getTeam(%object);
 			
-			%damagedClientTeam = Client::getTeam(%damagedClient); // move these inside
-			%shooterClientTeam = Client::getTeam(%object);
-			
-			if(%shooterClientTeam != %damagedClientTeam)
-				Client::sendMessage(%object, 0, "~C_BuySell.wav");
-		}
+		if(%shooterClientTeam != %damagedClientTeam)
+			// maybe do a local sound instead of a message?
+			Client::sendMessage(%object, 0, "~C_BuySell.wav");
 	}
 }
 
