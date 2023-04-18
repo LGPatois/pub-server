@@ -14,8 +14,7 @@ function HitSounds::OnDamage(%this, %type, %value, %pos, %vec, %mom, %vertPos, %
 		%shooterClientTeam = Client::getTeam(%object);
 			
 		if(%shooterClientTeam != %damagedClientTeam)
-			// maybe do a local sound instead of a message?
-			Client::sendMessage(%object, 0, "~C_BuySell.wav");
+			Client::sendMessage(%object, 0, "~C_BuySell.wav"); // maybe do a local sound instead of a message?
 	}
 }
 
